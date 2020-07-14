@@ -1,0 +1,10 @@
+<h1>Tweets#index</h1>
+  <ul><% @tweets.each do |tweet| %>
+    <li>
+      <%= link_to tweet.body, tweet_path(tweet)  %>
+    </li>
+    <% end %>
+  </ul>
+<h2>
+  <%= link_to 'New tweet', new_tweet_path %>
+</h2>
