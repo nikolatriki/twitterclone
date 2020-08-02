@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="column is-6 is-offset-3">
+      <div class="content is-size-6">
+        <%= form_with model: [@tweet, @reply], local: true do |form|%>
+          <div class="field">
+            <div class="control">
+              <%= form.text_area :body, class: "textarea", placeholder: "Comment..." %>
+            </div>
+          </div>
+
+          <div class="field is-grouped">
+            <div class="control">
+                <%= form.submit class: "button is-light" %>
+            </div>
+          </div>
+        <% end %>
+
+          <div class="control">
+              <%= link_to 'Cancel', tweet_path(@tweet), class: "button is-white" %>
+          </div>
+      </div>
+    </div>
+</div>

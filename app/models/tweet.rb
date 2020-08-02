@@ -1,3 +1,4 @@
 class Tweet < ApplicationRecord
-  validates :body, presence: true, length: {minimum: 3, maximum: 140 }
+  has_many :replies
+  validates :body, presence: true, length: { maximum: 140 }
 end
