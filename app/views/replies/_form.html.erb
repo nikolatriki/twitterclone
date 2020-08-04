@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="column is-6 is-offset-3">
+    <div class="content is-size-6">
+      <h1><%= heading %></h1>
+      <% if reply.errors.any? %>
+        <div id="error_explanation">
+          <article class="message is-danger">
+            <h2>
+              <%= pluralize(reply.errors.count, "error") %> prohibited this reply from being saved:
+            </h2>
+            <ul>
+              <% reply.errors.full_messages.each do |message|%>
+                <li><%= message %></li>
+
+              <% end %>
+            </ul>
+          </article>
+        </div>
+      <% end %>
+
+      <%= form_with model: [tweet, reply], local: true do |form|%>
+        <div class="field">
+          <p class="control">
+            <%= form.text_field :replier, class: "input", placeholder: 'Replier'%>
+          </p>
+        </div>
+
+        <div class="field">
+          <div class="control">
+            <%= form.text_area :body, class: "textarea", placeholder: "Reply..." %>
+          </div>
+        </div>
+
+        <div class="field is-grouped">
+          <div class="control">
+              <%= form.submit class: "button is-light" %>
+          </div>
+        </div>
+      <% end %>
+
+        <div class="control">
+            <%= link_to 'Cancel', tweet_path(tweet), class: "button is-white" %>
+        </div>
+    </div>
+  </div>
+</div>
