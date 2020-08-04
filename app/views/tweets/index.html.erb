@@ -1,33 +1,4 @@
-<div class="container">
-    <div class="column is-6 is-offset-3">
-      <div class="content is-size-6">
-
-        <% @tweets.each do |tweet| %>
-
-          <div class="box has-background-white-ter">
-            <article class="media">
-              <div class="media-content">
-                <div class="content">
-                  <p>
-                    <strong>John Smith</strong> <small>@johnsmith</small> <small><%= tweet.created_at.strftime("%d/%m/%Y %k:%M") %></small>
-                    <br>
-                    <%= tweet.body %>
-                  </p>
-                </div>
-                <nav class="level is-mobile">
-                  <div class="level-left">
-                    <div class="style">
-                      <%= link_to tweet_path(tweet) do %>
-                      <i class="fas fa-eye" aria-hidden="true"></i>
-                      <% end %>
-                    </div>
-                  </div>
-                </nav>
-              </div>
-            </article>
-          </div>
-        <% end %>
-      </div>
-    </div>
-</div>
-
+      <% @tweets.each do |tweet| %>
+        <%= render 'tweet',
+        tweet: tweet %>
+      <% end %>
