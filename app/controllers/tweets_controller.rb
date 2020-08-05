@@ -1,11 +1,12 @@
 class TweetsController < ApplicationController
-  
+
   def index
-    @tweets = Tweet.all
+    @tweets = Tweet.all.order(created_at: :desc)
   end
 
   def show
     @tweet = Tweet.find(params[:id])
+    @reply = @tweet.replies.order(created_at: :desc)
   end
 
   def new
