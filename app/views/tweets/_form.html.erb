@@ -15,20 +15,25 @@
         </div>
         <% end %>
 
-        <%= form_with model: tweet, local: true do |form|%>
+          <%= form_with model: tweet, local: true do |form|%>
               <div class="field">
                 <%= form.label heading, class: "label" %>
+                <div class="field">
+                  <div class="control">
+                   <%= form.text_field :creator, class: "input", placeholder: "Creator here"  %>
+                  </div>
+                </div>
                 <div class="control">
                   <%= form.text_area :body, class: "textarea", placeholder: "Maximum 140 characters..." %>
                 </div>
               </div>
 
-        <div class="field is-grouped">
-          <div class="control">
-              <%= form.submit class: "button is-light" %>
-          </div>
-        </div>
-        <% end %>
+            <div class="field is-grouped">
+              <div class="control">
+                  <%= form.submit class: "button is-light" %>
+              </div>
+            </div>
+          <% end %>
 
           <div class="control">
               <%= link_to 'Cancel', cancel_path, class: "button is-white" %>
