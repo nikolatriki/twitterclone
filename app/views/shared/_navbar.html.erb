@@ -25,10 +25,11 @@
           <div class="navbar-item">
             <div class="buttons">
               <a class="button is-light">
-                <strong>Sign up</strong>
+                <strong><%= link_to 'Sign up', users_signup_path %></strong>
               </a>
               <a class="button is-light">
-                Log in
+              <%# the users_signup_path need to be corrected %>
+                <%= link_to 'Log in', users_signup_path %>
               </a>
             </div>
           </div>
